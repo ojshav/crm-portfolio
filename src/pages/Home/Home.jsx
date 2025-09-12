@@ -2,6 +2,7 @@ import React from 'react'
 import HeroSection from './Components/Hero'
 import OmnichannelEngagement from './Components/OmnichannelEngagement'
 import OneSolution from './Components/OneSolution'
+import DummyImg from "@/assets/dummy.png"
 
 function Home() {
   return (
@@ -10,7 +11,7 @@ function Home() {
       <OmnichannelEngagement />
       <OneSolution />
 
-      <div className='h-52'></div>
+      <img src={DummyImg} alt=""  className='w-full h-full'/>
     </div>
   )
 }

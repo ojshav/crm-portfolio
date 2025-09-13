@@ -1,11 +1,13 @@
-import Home from "./pages/Home/Home"
-
-
+import { Outlet } from "react-router-dom";
+import Footer from "./component/Footer"
+import BeautifulNavbar from "./component/Navbar"
 
 const App = () => {
   return (
     <div>
-      <Home />
+      <BeautifulNavbar />
+      <Outlet />
+      <Footer />
     </div>
   )
 }

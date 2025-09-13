@@ -1,94 +1,106 @@
-import React from 'react';
+import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
 
-const Navbar = () => {
+export default function BeautifulNavbar() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const navItems = [
+    { name: 'Home', to: '/' },
+    { name: 'About', to: '/about' },
+    { name: 'Services', to: '#' },
+    { name: 'Portfolio', to: '#' },
+    { name: 'Pricing', to: '#' },
+    { name: 'Contact', to: '#' }
+  ];
+
   return (
-    <nav className="bg-black w-full py-4 px-6">
-      <div className="max-w-7xl mx-auto flex items-center justify-between">
-        {/* Logo */}
-        <div className="flex items-center">
-          <img 
-            src="/api/placeholder/200/60" 
-            alt="AlphaWizz Technologies Logo" 
-            className="h-10"
-          />
-        </div>
-        
-        {/* Navigation Links */}
-        <div className="hidden md:flex items-center space-x-8">
-          <a href="/" className="text-green-400 hover:text-green-300 font-medium">Home</a>
-          <a href="/about" className="text-white hover:text-green-300 font-medium">About Us</a>
-          <a href="/projects" className="text-white hover:text-green-300 font-medium">Projects</a>
+    <nav className="relative w-full bg-white/90 backdrop-blur-lg border-b border-gray-100/50 shadow-sm">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="flex items-center justify-between h-16 lg:h-20">
           
-          {/* Services Dropdown */}
-          <div className="relative group">
-            <button className="text-white hover:text-green-300 font-medium flex items-center">
-              Services
-              <svg 
-                xmlns="http://www.w3.org/2000/svg" 
-                className="h-4 w-4 ml-1" 
-                fill="none" 
-                viewBox="0 0 24 24" 
-                stroke="currentColor"
+          {/* Logo */}
+          <div className="flex items-center space-x-3">
+            <div className="w-8 h-8 lg:w-10 lg:h-10 bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 rounded-xl"></div>
+            <span className="text-xl lg:text-2xl font-bold bg-gradient-to-r from-gray-800 to-gray-600 bg-clip-text text-transparent">
+              CRM
+            </span>
+          </div>
+
+          {/* Desktop Navigation */}
+          <div className="hidden lg:flex items-center space-x-8">
+            {navItems.map((item) => (
+              <Link
+                key={item.name}
+                to={item.to}
+                className="relative text-gray-700 hover:text-purple-600 font-medium transition-all duration-300 group"
               >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-              </svg>
+                {item.name}
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-500 to-pink-500 group-hover:w-full transition-all duration-300"></span>
+              </Link>
+            ))}
+          </div>
+
+          {/* Desktop CTA Button */}
+          <div className="hidden lg:flex items-center space-x-4">
+            <button className="text-gray-700 hover:text-purple-600 font-medium transition-colors duration-300">
+              Sign In
             </button>
-            <div className="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
-              <div className="py-1">
-                <a href="/services/web-development" className="block px-4 py-2 text-gray-800 hover:bg-gray-100">Web Development</a>
-                <a href="/services/mobile-apps" className="block px-4 py-2 text-gray-800 hover:bg-gray-100">Mobile Apps</a>
-                <a href="/services/ui-ux" className="block px-4 py-2 text-gray-800 hover:bg-gray-100">UI/UX Design</a>
-              </div>
-            </div>
+            <button className="bg-gradient-to-r from-purple-500 to-blue-600 text-white px-6 py-2.5 rounded-full font-medium hover:from-purple-600 hover:to-blue-700 transition-all duration-300 shadow-lg hover:shadow-xl">
+              Get Started
+            </button>
           </div>
-          
-          <a href="/careers" className="text-white hover:text-green-300 font-medium">Careers</a>
-          <a href="/contact" className="text-white hover:text-green-300 font-medium">Contact Us</a>
-        </div>
-        
-        {/* CTA Button and Social Icons */}
-        <div className="flex items-center space-x-4">
-          <button className="bg-green-400 hover:bg-green-500 text-black font-bold px-6 py-2 rounded-full">
-            Pay Now
-          </button>
-          
-          {/* Social Media Icons */}
-          <div className="hidden md:flex items-center space-x-3">
-            <a href="#" className="text-white hover:text-green-400">
-              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M18.7 7.2H14V5.3c0-.9.6-1.2 1-1.2h3.6V0H14C10.5 0 9.6 2.7 9.6 4.5v2.7h-3v4h3V24h4.4V11.2h3l.7-4z"/>
-              </svg>
-            </a>
-            <a href="#" className="text-white hover:text-green-400">
-              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.2 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1.1.4 2.2.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.9c-.1 1.2-.2 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1.1.4-2.2.4-1.3.1-1.6.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.2-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1.1-.4-2.2-.1-1.3-.1-1.6-.1-4.9s0-3.6.1-4.9c.1-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1.1-.4 2.2-.4 1.3 0 1.6-.1 4.9-.1M12 0C8.7 0 8.3 0 7.1.1 5.8.2 5 .5 4.3.8c-.8.3-1.5.7-2.1 1.4-.7.7-1.1 1.4-1.4 2.1C.5 5 .2 5.8.1 7.1 0 8.3 0 8.7 0 12s0 3.7.1 4.9c.1 1.3.3 2.1.6 2.8.3.8.7 1.5 1.4 2.1.7.7 1.4 1.1 2.1 1.4.7.3 1.5.5 2.8.6 1.2.1 1.6.1 4.9.1s3.7 0 4.9-.1c1.3-.1 2.1-.3 2.8-.6.8-.3 1.5-.7 2.1-1.4.7-.7 1.1-1.4 1.4-2.1.3-.7.5-1.5.6-2.8.1-1.2.1-1.6.1-4.9s0-3.7-.1-4.9c-.1-1.3-.3-2.1-.6-2.8-.3-.8-.7-1.5-1.4-2.1-.7-.7-1.4-1.1-2.1-1.4C19 .5 18.2.2 16.9.1 15.3 0 14.9 0 12 0z"/>
-                <path d="M12 5.8c-3.4 0-6.2 2.8-6.2 6.2s2.8 6.2 6.2 6.2 6.2-2.8 6.2-6.2-2.8-6.2-6.2-6.2zm0 10.2c-2.2 0-4-1.8-4-4s1.8-4 4-4 4 1.8 4 4-1.8 4-4 4z"/>
-                <circle cx="18.4" cy="5.6" r="1.4"/>
-              </svg>
-            </a>
-            <a href="#" className="text-white hover:text-green-400">
-              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M21.4 0H2.6C1.2 0 0 1.2 0 2.6v18.8C0 22.8 1.2 24 2.6 24h18.8c1.4 0 2.6-1.2 2.6-2.6V2.6C24 1.2 22.8 0 21.4 0zM7.1 20.5H3.6V9h3.6v11.5zM5.3 7.4c-1.2 0-2.1-.9-2.1-2.1 0-1.2.9-2.1 2.1-2.1 1.2 0 2.1.9 2.1 2.1 0 1.2-.9 2.1-2.1 2.1zm15.2 13.1h-3.6v-5.6c0-1.3 0-3-1.8-3-1.8 0-2.1 1.4-2.1 2.9v5.7H9.4V9h3.4v1.6c.5-.9 1.6-1.8 3.4-1.8 3.6 0 4.3 2.4 4.3 5.5v6.2z"/>
-              </svg>
-            </a>
-          </div>
-          
-          {/* Menu Icon (for mobile) */}
-          <button className="block md:hidden text-white">
-            <svg 
-              xmlns="http://www.w3.org/2000/svg" 
-              className="h-6 w-6" 
-              fill="none" 
-              viewBox="0 0 24 24" 
+
+          {/* Mobile Menu Button */}
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="lg:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors duration-300"
+          >
+            <svg
+              className={`w-6 h-6 text-gray-700 transition-transform duration-300 ${isOpen ? 'rotate-90' : ''}`}
+              fill="none"
               stroke="currentColor"
+              viewBox="0 0 24 24"
             >
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              {isOpen ? (
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              ) : (
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              )}
             </svg>
           </button>
         </div>
+
+        {/* Mobile Menu */}
+        <div className={`lg:hidden transition-all duration-300 ease-in-out ${
+          isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+        } overflow-hidden`}>
+          <div className="py-6 space-y-4 border-t border-gray-100/50 mt-4">
+            {navItems.map((item) => (
+              <Link
+                key={item.name}
+                to={item.to}
+                className="block text-gray-700 hover:text-purple-600 font-medium py-2 transition-colors duration-300"
+                onClick={() => setIsOpen(false)}
+              >
+                {item.name}
+              </Link>
+            ))}
+            
+            {/* Mobile CTA Buttons */}
+            <div className="pt-4 space-y-3 border-t border-gray-100/50">
+              <button className="w-full text-left text-gray-700 hover:text-purple-600 font-medium py-2 transition-colors duration-300">
+                Sign In
+              </button>
+              <button className="w-full bg-gradient-to-r from-purple-500 to-blue-600 text-white px-6 py-3 rounded-full font-medium hover:from-purple-600 hover:to-blue-700 transition-all duration-300 shadow-lg">
+                Get Started
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
+
+      {/* Subtle gradient line at bottom */}
+      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-purple-200 to-transparent"></div>
     </nav>
   );
-};
-
-export default Navbar;
+}

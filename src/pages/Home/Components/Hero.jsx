@@ -66,7 +66,7 @@ export default function ClickUpLayout() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          The everything app, <span className="">for work.</span>
+          The everything CRM, <span className="">for work.</span>
         </motion.h1>
 
         {/* Description */}

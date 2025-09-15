@@ -13,7 +13,7 @@ export default function ClickUpHeroPrototype() {
             {/* Logo */}
             {/* <div className="flex items-center space-x-3">
               <div className="w-8 h-8 bg-gradient-to-r from-pink-500 via-blue-500 to-purple-500 rounded-lg"></div>
-              <span className="text-white text-2xl font-bold">ClickUp</span>
+              <span className="text-white text-2xl font-bold">CRM</span>
             </div> */}
 
             {/* Main Heading */}
@@ -51,7 +51,7 @@ export default function ClickUpHeroPrototype() {
             <div className="relative backdrop-blur-xl bg-white/10 border border-white/20 rounded-3xl p-6 shadow-2xl">
               <img 
                 src={heroCrm3Img} 
-                alt="ClickUp Dashboard"
+                alt="CRM Dashboard"
                 className="rounded-2xl w-full h-auto"
               />
             </div>

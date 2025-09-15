@@ -7,7 +7,7 @@ export default function BeautifulNavbar() {
   const navItems = [
     { name: 'Home', to: '/' },
     { name: 'About', to: '/about' },
-    { name: 'Services', to: '#' },
+    { name: 'Services', to: '/services' },
     { name: 'Portfolio', to: '#' },
     { name: 'Pricing', to: '#' },
     { name: 'Contact', to: '#' }

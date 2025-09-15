@@ -1,4 +1,4 @@
-export const MissionSectionAlt = () => {
+const MissionSectionAlt = () => {
   return (
     <section className="py-20 bg-gradient-to-br from-gray-50 to-white overflow-hidden">
       <div className="px-4 md:px-12 lg:px-32">
@@ -114,3 +114,5 @@ export const MissionSectionAlt = () => {
     </section>
   );
 };
+
+export default MissionSectionAlt;

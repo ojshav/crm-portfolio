@@ -8,7 +8,7 @@ export default function BeautifulNavbar() {
     { name: 'Home', to: '/' },
     { name: 'About', to: '/about' },
     { name: 'Services', to: '/services' },
-    { name: 'Portfolio', to: '#' },
+    { name: 'Portfolio', to: '/portfolio' },
     { name: 'Pricing', to: '#' },
     { name: 'Contact', to: '#' }
   ];

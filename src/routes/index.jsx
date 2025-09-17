@@ -3,6 +3,7 @@ import App from "../App";
 import Home from "../pages/Home/Home";
 import About from "../pages/About/About";
 import Services from "@/pages/Services/Services";
+import Portfolio from "@/pages/Portfolio/Portfolio";
 
 export const router = createBrowserRouter([
   {
@@ -21,6 +22,10 @@ export const router = createBrowserRouter([
         path: "services",
         element: <Services />,
       },
+      {
+        path: "portfolio",
+        element: <Portfolio />
+      }
     ],
   },
 ]);

@@ -2,7 +2,7 @@ import React from 'react';
 
 const MovingIconsSection = () => {
   const iconSrc =
-    "https://www.websitedesigningtoronto.ca/71-large_default/logo-animation.jpg";
+    "/logo.png";
 
     const arr = [
         "https://images.ctfassets.net/w8fc6tgspyjz/1DX3J7bZQDSHGAg4GZSxF9/a1b21de0ef0ac9edb93ff3bb8e69d528/LambdaTest.svg",

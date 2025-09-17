@@ -422,10 +422,10 @@ const AnimatedCounter = ({
     const getGlowColor = () => {
         if (progress >= 0.9) { // When 90% or more complete, transition to pink
             return {
-                circleGlow: 'drop-shadow(0 0 8px rgba(244, 114, 182, 0.6))',
-                svgGlow: 'drop-shadow(0 0 10px rgba(244, 114, 182, 0.4))',
-                textShadow: '0 0 10px rgba(244, 114, 182, 0.5), 0 0 20px rgba(244, 114, 182, 0.3), 0 0 30px rgba(244, 114, 182, 0.2)',
-                strokeColor: '#f472b6' // Light pink stroke
+                circleGlow: 'drop-shadow(0 0 8px rgba(36, 99, 235, 0.6))',
+                svgGlow: 'drop-shadow(0 0 10px rgba(36, 99, 235, 0.4))',
+                textShadow: '0 0 10px rgba(36, 99, 235, 0.5), 0 0 20px rgba(36, 99, 235, 0.3), 0 0 30px rgba(36, 99, 235, 0.2)',
+                strokeColor: '#2463eb' // Light pink stroke
             };
         }
         return {
@@ -477,7 +477,7 @@ const AnimatedCounter = ({
                         className="text-2xl md:text-3xl font-bold text-sky-400 transition-all duration-300"
                         style={{
                             textShadow: glowStyle.textShadow,
-                            color: progress >= 0.9 ? '#f472b6' : '#38bdf8'
+                            color: progress >= 0.9 ? '#2463eb' : '#38bdf8'
                         }}
                     >
                         {prefix}{currentValue.toLocaleString()}{suffix}

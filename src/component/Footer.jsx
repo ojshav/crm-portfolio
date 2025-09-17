@@ -12,8 +12,7 @@ export default function Footer() {
             {/* Company Info */}
             <div className="space-y-4">
               <div className="flex items-center space-x-3">
-                <div className="w-8 h-8 bg-gradient-to-r from-pink-500 via-blue-500 to-purple-500 rounded-lg"></div>
-                <span className="text-white text-xl font-bold">CRM</span>
+                <img src="/logo.png" alt="" className='h-28 w-28' />
               </div>
               <p className="text-gray-300 text-sm leading-relaxed">
                 The everything app for productivity. Organize, collaborate, and streamline your workflow.

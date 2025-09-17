@@ -20,10 +20,7 @@ export default function BeautifulNavbar() {
           
           {/* Logo */}
           <div className="flex items-center space-x-3">
-            <div className="w-8 h-8 lg:w-10 lg:h-10 bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 rounded-xl"></div>
-            <span className="text-xl lg:text-2xl font-bold bg-gradient-to-r from-gray-800 to-gray-600 bg-clip-text text-transparent">
-              CRM
-            </span>
+            <img src="/logo.png" alt="" className='h-20 w-20'/>
           </div>
 
           {/* Desktop Navigation */}

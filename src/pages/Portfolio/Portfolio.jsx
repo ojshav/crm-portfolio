@@ -1,15 +1,17 @@
 import React from 'react'
 import TimelineComponent from './components/TimelineComponent'
+import HeroComponent from './components/Hero'
+import DashboardTabs from './components/DashboardTabs'
 
 const Portfolio = () => {
   return (
     <div>
-        
-        <div className='h-[80vh] w-full bg-blue-200 text-3xl font-bold flex items-center justify-center'>
-            Hero Header
-        </div>
+
+      <HeroComponent />
 
         <TimelineComponent />
+
+        <DashboardTabs />
     </div>
   )
 }

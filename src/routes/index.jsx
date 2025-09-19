@@ -5,6 +5,7 @@ import About from "../pages/About/About";
 import Services from "@/pages/Services/Services";
 import Portfolio from "@/pages/Portfolio/Portfolio";
 import Contact from "@/pages/Contact/Contact";
+import PricingSection from "@/pages/Pricing/PricingSection";
 
 
 export const router = createBrowserRouter([
@@ -31,6 +32,10 @@ export const router = createBrowserRouter([
       {
         path: "contact",
         element: <Contact />
+      },
+      {
+        path: "pricing",
+        element: <PricingSection />
       }
     ],
   },

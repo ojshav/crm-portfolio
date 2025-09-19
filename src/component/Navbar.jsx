@@ -9,7 +9,7 @@ export default function BeautifulNavbar() {
     { name: 'About', to: '/about' },
     { name: 'Services', to: '/services' },
     { name: 'Portfolio', to: '/portfolio' },
-    { name: 'Pricing', to: '#' },
+    { name: 'Pricing', to: '/pricing' },
     { name: 'Contact', to: '/contact' }
   ];
 

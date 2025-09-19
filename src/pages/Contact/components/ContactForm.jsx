@@ -39,19 +39,19 @@ export default function ContactForm() {
         <h2 className="text-3xl font-bold mb-8 text-black relative z-10">Contact Info</h2>
 
         <div className="space-y-6 relative z-10">
-          <div className="flex items-center gap-4 p-4 rounded-xl bg-white/20 backdrop-blur-sm border border-black hover:bg-black transition-all duration-300">
+          <div className="flex items-center gap-4 p-4 rounded-xl bg-white/20 backdrop-blur-sm border border-black  transition-all duration-300">
             <div className="p-2 rounded-lg bg-black">
               <Phone className="w-6 h-6 text-white" />
             </div>
             <span className="text-black font-medium">+91 98765 43210</span>
           </div>
-          <div className="flex items-center gap-4 p-4 rounded-xl bg-white/20 backdrop-blur-sm border border-black hover:bg-black transition-all duration-300">
+          <div className="flex items-center gap-4 p-4 rounded-xl bg-white/20 backdrop-blur-sm border border-black transition-all duration-300">
             <div className="p-2 rounded-lg bg-black">
               <Mail className="w-6 h-6 text-white" />
             </div>
             <span className="text-black font-medium">support@yourcrm.com</span>
           </div>
-          <div className="flex items-center gap-4 p-4 rounded-xl bg-white/20 backdrop-blur-sm border border-black hover:bg-black transition-all duration-300">
+          <div className="flex items-center gap-4 p-4 rounded-xl bg-white/20 backdrop-blur-sm border border-black transition-all duration-300">
             <div className="p-2 rounded-lg bg-black">
               <MapPin className="w-6 h-6 text-white" />
             </div>

@@ -2,6 +2,12 @@ import React from 'react';
 import heroCrm5Img from '@/assets/hero-crm5.png';
 
 export default function AboutHeroSection() {
+    const handleScroll = () => {
+        window.scrollBy({
+          top: window.innerHeight * 0.9, // Scroll down by 90% of the viewport height
+          behavior: 'smooth',
+        });
+      };
   return (
     <div className="relative w-full h-[80vh] bg-gradient-to-br from-purple-50 via-pink-50 to-blue-50 rounded-3xl overflow-hidden">
       {/* Content Section */}
@@ -36,7 +42,7 @@ export default function AboutHeroSection() {
             {/* CTA Section */}
             <div className="space-y-6">
               <div className="flex items-center space-x-4">
-                <button className="bg-gradient-to-r from-purple-500 to-blue-600 text-white px-8 py-4 rounded-full text-lg font-semibold hover:from-purple-600 hover:to-blue-700 transition-all duration-300 flex items-center space-x-2">
+                <button onClick={handleScroll} className="bg-gradient-to-r from-purple-500 to-blue-600 text-white px-8 py-4 rounded-full text-lg font-semibold hover:from-purple-600 hover:to-blue-700 transition-all duration-300 flex items-center space-x-2">
                   <span>Discover Our Story</span>
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />

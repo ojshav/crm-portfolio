@@ -2,6 +2,12 @@ import React from 'react';
 import heroCrm3Img from '@/assets/hero-crm3.png';
 
 export default function ClickUpHeroPrototype() {
+    const handleScroll = () => {
+        window.scrollBy({
+          top: window.innerHeight * 0.9, // Scroll down by 90% of the viewport height
+          behavior: 'smooth',
+        });
+      };
   return (
     <div className="relative max-w-6xl mx-auto bg-gradient-to-br from-black via-purple-950 to-purple-800 rounded-3xl overflow-hidden mb-36">
       {/* Left Content Section */}
@@ -33,7 +39,7 @@ export default function ClickUpHeroPrototype() {
 
             {/* CTA Button */}
             <div className="pt-4">
-              <button className="bg-white text-black px-8 py-4 rounded-2xl text-lg font-semibold hover:bg-gray-100 transition-colors duration-300 flex items-center space-x-2">
+              <button onClick={handleScroll} className="bg-white text-black px-8 py-4 rounded-2xl text-lg font-semibold hover:bg-gray-100 transition-colors duration-300 flex items-center space-x-2">
                 <span>Get started. It's FREE</span>
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />

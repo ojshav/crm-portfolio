@@ -86,6 +86,7 @@ const ServicesHero = () => {
                     </p>
 
                     <motion.button
+                    onClick={handleScroll}
                         className="relative overflow-hidden z-20 bg-[linear-gradient(to_right,_#00d5ff,_#1d4ed8,_#6112ff,_#ec4899,_#ec4899)] text-white font-semibold px-6 sm:px-8 py-2.5 sm:py-3 rounded-lg text-base sm:text-lg hover:shadow-lg transform hover:scale-105 transition-all duration-300 mb-3 sm:mb-4"
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}

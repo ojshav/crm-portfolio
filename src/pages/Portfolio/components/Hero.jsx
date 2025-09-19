@@ -71,7 +71,7 @@ export default function HeroSection() {
             {/* CTA Section */}
             <div className="space-y-6">
               <div className="flex items-center space-x-4">
-                <button className="bg-gradient-to-r from-purple-500 to-blue-600 text-white px-8 py-4 rounded-full text-lg font-semibold hover:from-purple-600 hover:to-blue-700 transition-all duration-300 flex items-center space-x-2">
+                <button onClick={handleScroll} className="bg-gradient-to-r from-purple-500 to-blue-600 text-white px-8 py-4 rounded-full text-lg font-semibold hover:from-purple-600 hover:to-blue-700 transition-all duration-300 flex items-center space-x-2">
                   <span>Discover Our Story</span>
                   <svg
                     className="w-5 h-5"

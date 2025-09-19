@@ -5,6 +5,7 @@ import Omni2Img from '@/assets/home/omni2.png';
 import Omni3Img from '@/assets/home/omni3.png';
 import Omni4Img from '@/assets/home/omni4.png';
 import Omni5Img from '@/assets/home/omni5.png';
+import { Link } from 'react-router-dom';
 
 export default function OmnichannelEngagement() {
   // Container animation with stagger
@@ -68,7 +69,8 @@ export default function OmnichannelEngagement() {
           </motion.div>
 
           {/* Section 3 - Book Appointments & Help Desk */}
-          <motion.div className="lg:col-span-1 space-y-4" variants={itemVariants}>
+    <Link to="/portfolio">
+                <motion.div className="lg:col-span-1 space-y-4" variants={itemVariants}>
             <div className="bg-gray-100 bg-opacity-50 backdrop-blur-md border border-gray-200 border-opacity-50 rounded-2xl p-2 shadow-xl">
               <img src={Omni3Img} alt="Book Appointments" className="w-full h-auto rounded-xl object-cover"/>
             </div>
@@ -76,6 +78,7 @@ export default function OmnichannelEngagement() {
               <img src={Omni4Img} alt="Help Desk" className="w-full h-auto rounded-xl object-cover"/>
             </div>
           </motion.div>
+    </Link>
 
           {/* Section 4 - AI-powered Chatbot */}
           <motion.div className="lg:col-span-1" variants={itemVariants}>

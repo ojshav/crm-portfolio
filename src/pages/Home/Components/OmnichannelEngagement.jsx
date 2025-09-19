@@ -69,7 +69,7 @@ export default function OmnichannelEngagement() {
           </motion.div>
 
           {/* Section 3 - Book Appointments & Help Desk */}
-    <Link to="/portfolio">
+    <Link to="/book-appointments">
                 <motion.div className="lg:col-span-1 space-y-4" variants={itemVariants}>
             <div className="bg-gray-100 bg-opacity-50 backdrop-blur-md border border-gray-200 border-opacity-50 rounded-2xl p-2 shadow-xl">
               <img src={Omni3Img} alt="Book Appointments" className="w-full h-auto rounded-xl object-cover"/>

@@ -85,21 +85,22 @@ const ServicesHero = () => {
                         tracking to customer onboarding and deal collaboration into one place.
                     </p>
 
-                    <motion.button
-                    onClick={handleScroll}
-                        className="relative overflow-hidden z-20 bg-[linear-gradient(to_right,_#00d5ff,_#1d4ed8,_#6112ff,_#ec4899,_#ec4899)] text-white font-semibold px-6 sm:px-8 py-2.5 sm:py-3 rounded-lg text-base sm:text-lg hover:shadow-lg transform hover:scale-105 transition-all duration-300 mb-3 sm:mb-4"
-                        initial={{ opacity: 0, y: 30 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8, delay: 0.4 }}
-                        whileTap={{ scale: 0.95 }}
-                    >
-                        <span className="relative z-10 font-sans">Get started. It's FREE!</span>
+                    <Link to="/pricing">
+                        <motion.button
+                            className="relative overflow-hidden z-20 bg-[linear-gradient(to_right,_#00d5ff,_#1d4ed8,_#6112ff,_#ec4899,_#ec4899)] text-white font-semibold px-6 sm:px-8 py-2.5 sm:py-3 rounded-lg text-base sm:text-lg hover:shadow-lg transform hover:scale-105 transition-all duration-300 mb-3 sm:mb-4"
+                            initial={{ opacity: 0, y: 30 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.8, delay: 0.4 }}
+                            whileTap={{ scale: 0.95 }}
+                        >
+                            <span className="relative z-10 font-sans">Get started. It's FREE!</span>
 
-                        {/* Shiny effect overlay */}
-                        <span className="absolute inset-0 w-full h-full rounded-lg overflow-hidden">
-                            <span className="absolute -top-1 -left-1 w-1/3 h-[200%] bg-white/40 rotate-12 transform translate-x-[-120%] hover:translate-x-[300%] transition-transform duration-700 ease-in-out"></span>
-                        </span>
-                    </motion.button>
+                            {/* Shiny effect overlay */}
+                            <span className="absolute inset-0 w-full h-full rounded-lg overflow-hidden">
+                                <span className="absolute -top-1 -left-1 w-1/3 h-[200%] bg-white/40 rotate-12 transform translate-x-[-120%] hover:translate-x-[300%] transition-transform duration-700 ease-in-out"></span>
+                            </span>
+                        </motion.button>
+                    </Link>
 
                     <div className="mt-4 text-sm text-gray-500">
                         Free forever. No credit card.

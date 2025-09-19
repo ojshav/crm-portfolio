@@ -85,12 +85,12 @@ export default function BeautifulNavbar() {
             
             {/* Mobile CTA Buttons */}
             <div className="pt-4 space-y-3 border-t border-gray-100/50">
-              <button className="w-full text-left text-gray-700 hover:text-purple-600 font-medium py-2 transition-colors duration-300">
+              <Link to="/contact" className="w-full text-left text-gray-700 hover:text-purple-600 font-medium py-2 transition-colors duration-300">
                 Sign In
-              </button>
-              <button className="w-full bg-gradient-to-r from-purple-500 to-blue-600 text-white px-6 py-3 rounded-full font-medium hover:from-purple-600 hover:to-blue-700 transition-all duration-300 shadow-lg">
+              </Link>
+              <Link to="/pricing" className="w-full bg-gradient-to-r from-purple-500 to-blue-600 text-white px-6 py-3 rounded-full font-medium hover:from-purple-600 hover:to-blue-700 transition-all duration-300 shadow-lg">
                 Get Started
-              </button>
+              </Link>
             </div>
           </div>
         </div>

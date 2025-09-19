@@ -6,6 +6,7 @@ import Services from "@/pages/Services/Services";
 import Portfolio from "@/pages/Portfolio/Portfolio";
 import Contact from "@/pages/Contact/Contact";
 import PricingSection from "@/pages/Pricing/PricingSection";
+import BookAppointment from "@/pages/BookAppointment/BookAppointment";
 
 
 export const router = createBrowserRouter([
@@ -36,6 +37,10 @@ export const router = createBrowserRouter([
       {
         path: "pricing",
         element: <PricingSection />
+      },
+      {
+        path: "book-appointment",
+        element: <BookAppointment />
       }
     ],
   },

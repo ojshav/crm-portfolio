@@ -143,7 +143,7 @@ export default function BookAppointmentHero() {
           <img
             src={img}
             alt={`Slide ${idx + 1}`}
-            className="w-full h-full object-cover rounded-xl" // Changed to object-cover
+            className="w-full h-full object-fit rounded-xl" // Changed to object-cover
           />
         </SwiperSlide>
       ))}

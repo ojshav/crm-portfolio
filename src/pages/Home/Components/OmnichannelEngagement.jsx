@@ -69,7 +69,7 @@ export default function OmnichannelEngagement() {
           </motion.div>
 
           {/* Section 3 - Book Appointments & Help Desk */}
-    <Link to="/book-appointments">
+    <Link to="/book-appointment">
                 <motion.div className="lg:col-span-1 space-y-4" variants={itemVariants}>
             <div className="bg-gray-100 bg-opacity-50 backdrop-blur-md border border-gray-200 border-opacity-50 rounded-2xl p-2 shadow-xl">
               <img src={Omni3Img} alt="Book Appointments" className="w-full h-auto rounded-xl object-cover"/>
@@ -81,11 +81,13 @@ export default function OmnichannelEngagement() {
     </Link>
 
           {/* Section 4 - AI-powered Chatbot */}
-          <motion.div className="lg:col-span-1" variants={itemVariants}>
+      <Link to={"/chat-bot"}>
+                  <motion.div className="lg:col-span-1" variants={itemVariants}>
             <div className="bg-gray-100 bg-opacity-50 backdrop-blur-md border border-gray-200 border-opacity-50 rounded-2xl p-2 shadow-xl">
               <img src={Omni5Img} alt="AI Chatbot Interface" className="w-full h-auto rounded-xl object-cover"/>
             </div>
           </motion.div>
+      </Link>
 
         </div>
       </motion.div>

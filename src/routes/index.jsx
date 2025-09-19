@@ -7,6 +7,7 @@ import Portfolio from "@/pages/Portfolio/Portfolio";
 import Contact from "@/pages/Contact/Contact";
 import PricingSection from "@/pages/Pricing/PricingSection";
 import BookAppointment from "@/pages/BookAppointment/BookAppointment";
+import Chatbot from "@/pages/Chatbot/Chatbot";
 
 
 export const router = createBrowserRouter([
@@ -41,6 +42,10 @@ export const router = createBrowserRouter([
       {
         path: "book-appointment",
         element: <BookAppointment />
+      },
+      {
+        path: "chat-bot",
+        element: <Chatbot />
       }
     ],
   },

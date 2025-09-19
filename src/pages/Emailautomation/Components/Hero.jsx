@@ -106,7 +106,7 @@ import { motion } from "framer-motion";
 
 const HeroHeader = () => {
   return (
-    <div className="relative min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-purple-50 overflow-hidden">
+    <div className="relative min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-purple-50 overflow-hidden py-16">
       {/* Background decorative elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-r from-blue-400/20 to-purple-400/20 rounded-full blur-3xl"></div>
@@ -145,7 +145,7 @@ const HeroHeader = () => {
         {/* Subtitle */}
         <div className="text-center max-w-5xl mx-auto mb-10">
           <p className="text-lg sm:text-xl md:text-2xl text-slate-600 leading-relaxed">
-            OneSecond empowers businesses with advanced Email Automation tools to drive engagement 
+            Custria empowers businesses with advanced Email Automation tools to drive engagement 
             and conversions. Automate, personalize, and track every campaign for maximum impact.
           </p>
         </div>

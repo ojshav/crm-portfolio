@@ -235,7 +235,9 @@
 
 // export default Steps;
 
-
+import img4 from "../../../assets/Emailautomation/img4.png";
+import img5 from "../../../assets/Emailautomation/img5.png";
+import img6 from "../../../assets/Emailautomation/img6.png";
 import React, { useState, useEffect, useRef } from 'react';
 import { Target, Zap, BarChart3, Settings } from 'lucide-react';
 
@@ -296,20 +298,20 @@ const Steps = () => {
   return (
     <div 
       ref={componentRef}
-      className="min-h-screen bg-white p-4 md:p-8 font-inter"
+      className="min-h-screen bg-white px-2  lg:px md:px-   md:py-20  py-10 font-inter"
     >
       <div className="max-w-7xl mx-auto">
         {/* Header Section */}
         <div className={`text-center mb-16 transform transition-all duration-1200 ease-out ${
           isVisible ? 'translate-y-0 opacity-100' : 'translate-y-16 opacity-0'
         }`}>
-          <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-10 leading-tight tracking-tight">
+          <h1 className="text-3xl md:text-6xl font-bold text-gray-900 mb-10 leading-tight tracking-tight">
             Transform Your Email Marketing with Our{' '}
             <span className="bg-gradient-to-r mt-4 from-cyan-400 via-blue-500 via-purple-500 to-pink-500 bg-clip-text text-transparent">
               Email Automation CRM
             </span>
           </h1>
-          <p className="text-lg md:text-xl text-gray-600 max-w-5xl mx-auto leading-relaxed font-medium">
+          <p className="text-md md:text-xl text-gray-600 max-w-5xl mx-auto leading-relaxed font-medium">
             Take your email marketing to the next level with our all-in-one Email Automation CRM. From planning and designing campaigns to real-time tracking and optimization, we help you build stronger relationships, increase engagement, and drive measurable results.
           </p>
         </div>
@@ -320,7 +322,7 @@ const Steps = () => {
           <div className={`relative transform transition-all duration-1000 delay-200 ease-out ${
             isVisible ? 'translate-x-0 opacity-100' : '-translate-x-12 opacity-0'
           }`}>
-            <div className="relative bg-white rounded-2xl shadow-2xl overflow-hidden h-[500px]">
+            <div className="relative bg-white rounded-2xl  overflow-hidden h-[500px]">
               {/* Background Decoration */}
               <div className="absolute inset-0 bg-gradient-to-br from-purple-50 via-blue-50 to-pink-50"></div>
               
@@ -330,36 +332,44 @@ const Steps = () => {
                 <div className={`absolute inset-4 flex items-center justify-center transition-all duration-700 ${
                   activeStep === 0 ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
                 }`}>
-                  <div className="w-full h-full bg-gradient-to-br from-blue-100 to-cyan-100 rounded-xl flex items-center justify-center">
-                    <div className="text-gray-500 font-medium text-sm">Step 1 Image</div>
-                  </div>
+                   <img
+                          src={img4}
+                          alt="Professional woman"
+                          className="w-full h-full object-contain"
+                        />
                 </div>
 
                 {/* Step 2 Image Container */}
                 <div className={`absolute inset-4 flex items-center justify-center transition-all duration-700 ${
                   activeStep === 1 ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
                 }`}>
-                  <div className="w-full h-full bg-gradient-to-br from-purple-100 to-pink-100 rounded-xl flex items-center justify-center">
-                    <div className="text-gray-500 font-medium text-sm">Step 2 Image</div>
-                  </div>
+                     <img
+                          src={img5}
+                          alt="Professional woman"
+                          className="w-full h-full object-contain"
+                        />
                 </div>
 
                 {/* Step 3 Image Container */}
                 <div className={`absolute inset-4 flex items-center justify-center transition-all duration-700 ${
                   activeStep === 2 ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
                 }`}>
-                  <div className="w-full h-full bg-gradient-to-br from-green-100 to-teal-100 rounded-xl flex items-center justify-center">
-                    <div className="text-gray-500 font-medium text-sm">Step 3 Image</div>
-                  </div>
+                     <img
+                          src={img6}
+                          alt="Professional woman"
+                          className="w-full h-full object-contain"
+                        />
                 </div>
 
                 {/* Step 4 Image Container */}
                 <div className={`absolute inset-4 flex items-center justify-center transition-all duration-700 ${
                   activeStep === 3 ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
                 }`}>
-                  <div className="w-full h-full bg-gradient-to-br from-orange-100 to-yellow-100 rounded-xl flex items-center justify-center">
-                    <div className="text-gray-500 font-medium text-sm">Step 4 Image</div>
-                  </div>
+                    <img
+                          src={img4}
+                          alt="Professional woman"
+                          className="w-full h-full object-contain"
+                        />
                 </div>
               </div>
             </div>

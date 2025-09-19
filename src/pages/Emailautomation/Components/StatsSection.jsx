@@ -4,8 +4,8 @@ import img1 from "../../../assets/Emailautomation/img1.png";
 import img2 from "../../../assets/Emailautomation/img2.png";
 const Statssection = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-purple-50 p-4 md:p-8">
-      <div className="max-w-7xl mx-auto">
+    <div className="min-h-screen  bg-gradient-to-br from-slate-50 via-blue-50 to-purple-50 md:px-12 md:py-20 ">
+      <div className="max-w-8xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 h-auto lg:h-[600px]">
           {/* Left Column - Email Stats */}
           <div className="lg:col-span-4 space-y-6">
@@ -108,7 +108,7 @@ const Statssection = () => {
               <img
                 src={img2}
                 alt="Professional woman"
-                className="w-full h-full object-contain"
+                className="w-full h-full object-fill"
               />
             </div>
 

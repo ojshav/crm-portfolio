@@ -58,6 +58,6 @@ export default {
   		}
   	}
   },
-  plugins: [require("tailwindcss-animate") ,scrollbarHide],
+  plugins: [require("tailwindcss-animate") ],
 }
 

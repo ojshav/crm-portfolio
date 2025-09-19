@@ -400,21 +400,16 @@ const ComparisonTable = () => {
               {plans.map((plan, index) => (
                 <div key={plan.name} className="text-center">
                   <motion.button
-                    whileHover={{ scale: 1.02, y: -2 }}
-                    whileTap={{ scale: 0.98 }}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: 0.8 + index * 0.1 }}
-                    className={`w-full py-3 px-6 rounded-xl font-semibold text-white transition-all duration-300 ${
-                      plan.colorScheme === 'starter' 
-                        ? 'bg-gradient-to-r from-sky-500 to-sky-600 hover:from-sky-600 hover:to-sky-700 shadow-lg hover:shadow-sky-500/25'
-                        : plan.colorScheme === 'professional'
-                        ? 'bg-gradient-to-r from-purple-500 to-purple-600 hover:from-purple-600 hover:to-purple-700 shadow-lg hover:shadow-purple-500/25'
-                        : 'bg-gradient-to-r from-pink-500 to-pink-600 hover:from-pink-600 hover:to-pink-700 shadow-lg hover:shadow-pink-500/25'
-                    }`}
-                  >
-                    {plan.isCustom ? 'Contact Sales' : 'Get Started'}
-                  </motion.button>
+  whileHover={{ scale: 1.02, y: -2 }}
+  whileTap={{ scale: 0.98 }}
+  initial={{ opacity: 0, y: 20 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.5, delay: 0.8 + index * 0.1 }}
+  className="w-full py-3 px-6 rounded-xl font-semibold text-white transition-all duration-300 
+             bg-black hover:bg-gray-900 shadow-lg hover:shadow-gray-500/25"
+>
+  {plan.isCustom ? 'Contact Sales' : 'Get Started'}
+</motion.button>
                 </div>
               ))}
             </div>

@@ -23,6 +23,8 @@ import Card3TextImg from '@/assets/home/bigbox3-3.png';
 
 import Card4Img from '@/assets/home/bigbox4.png';
 import Card4TextImg from '@/assets/home/bigbox4-4.png';
+import { Link } from 'react-router-dom';
+
 
 export default function FeaturesSection() {
     const smallBoxes = [
@@ -221,9 +223,11 @@ export default function FeaturesSection() {
                 <p className="text-gray-600 text-base md:text-lg mb-6 md:mb-8">
                     100+ features to take productivity to the next level.
                 </p>
-                <button className="bg-black text-white px-6 py-3 rounded-xl font-medium hover:bg-gray-800 transition-colors">
-                    Discover all features
-                </button>
+                <Link to="/services">
+                    <button className="bg-black text-white px-6 py-3 rounded-xl font-medium hover:bg-gray-800 transition-colors">
+                        Discover all features
+                    </button>
+                </Link>
             </div>
 
             {/* Grid Container with fade effect */}

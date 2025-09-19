@@ -39,12 +39,12 @@ export default function BeautifulNavbar() {
 
           {/* Desktop CTA Button */}
           <div className="hidden lg:flex items-center space-x-4">
-            <button className="text-gray-700 hover:text-purple-600 font-medium transition-colors duration-300">
+            <Link to="/contact" className="text-gray-700 hover:text-purple-600 font-medium transition-colors duration-300">
               Sign In
-            </button>
-            <button className="bg-gradient-to-r from-purple-500 to-blue-600 text-white px-6 py-2.5 rounded-full font-medium hover:from-purple-600 hover:to-blue-700 transition-all duration-300 shadow-lg hover:shadow-xl">
+            </Link>
+            <Link to="/pricing" className="bg-gradient-to-r from-purple-500 to-blue-600 text-white px-6 py-2.5 rounded-full font-medium hover:from-purple-600 hover:to-blue-700 transition-all duration-300 shadow-lg hover:shadow-xl">
               Get Started
-            </button>
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}

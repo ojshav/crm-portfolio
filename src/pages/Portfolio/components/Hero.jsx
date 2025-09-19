@@ -20,6 +20,12 @@ const menuItems = [
 ];
 
 export default function HeroSection() {
+  const handleScroll = () => {
+    window.scrollBy({
+      top: window.innerHeight * 0.9, // Scroll down by 90% of the viewport height
+      behavior: 'smooth',
+    });
+  };
   const [currentIndex, setCurrentIndex] = useState(0);
 
   // Auto change label + image every 2 seconds

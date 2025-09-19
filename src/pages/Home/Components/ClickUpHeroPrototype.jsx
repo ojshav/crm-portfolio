@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import heroCrm3Img from '@/assets/hero-crm3.png';
 
 export default function ClickUpHeroPrototype() {

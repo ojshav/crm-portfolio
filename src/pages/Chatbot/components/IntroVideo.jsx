@@ -33,7 +33,7 @@ const IntroVideo = () => {
                 loop 
                 muted 
                 // playsInline
-                  className="w-full h-[70vh] object-cover"
+                  className="w-full h-[40vh] md:h-[70vh] onject-fit md:object-cover"
                   poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 800'%3E%3Crect width='1200' height='800' fill='%23f3f4f6'/%3E%3C/svg%3E"
                 >
                   <source src={videoUrl} type="video/mp4" />

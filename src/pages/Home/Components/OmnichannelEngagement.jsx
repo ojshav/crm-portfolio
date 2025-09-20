@@ -55,11 +55,14 @@ export default function OmnichannelEngagement() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 h-auto items-end">
           
           {/* Section 1 - Email Automation */}
-          <motion.div className="lg:col-span-1" variants={itemVariants}>
+
+<Link to={"/email-automation"}>
+              <motion.div className="lg:col-span-1" variants={itemVariants}>
             <div className="bg-gray-100 bg-opacity-50 backdrop-blur-md border border-gray-200 border-opacity-50 rounded-2xl p-2 shadow-xl">
               <img src={Omni1Img} alt="Email Automation Dashboard" className="w-full h-auto rounded-xl object-cover"/>
             </div>
           </motion.div>
+</Link>
 
           {/* Section 2 - CRM & Sales */}
           <motion.div className="lg:col-span-1" variants={itemVariants}>

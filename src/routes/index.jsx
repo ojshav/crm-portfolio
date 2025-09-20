@@ -6,8 +6,10 @@ import Services from "@/pages/Services/Services";
 import Portfolio from "@/pages/Portfolio/Portfolio";
 import Contact from "@/pages/Contact/Contact";
 import PricingSection from "@/pages/Pricing/PricingSection";
+import Emailautomation from "@/pages/Emailautomation/Email";
 import BookAppointment from "@/pages/BookAppointment/BookAppointment";
 import Chatbot from "@/pages/Chatbot/Chatbot";
+
 
 
 export const router = createBrowserRouter([
@@ -38,6 +40,10 @@ export const router = createBrowserRouter([
       {
         path: "pricing",
         element: <PricingSection />
+      } ,
+      {
+        path: "email-automation",
+        element: <Emailautomation />
       },
       {
         path: "book-appointment",
@@ -46,6 +52,7 @@ export const router = createBrowserRouter([
       {
         path: "chat-bot",
         element: <Chatbot />
+
       }
     ],
   },

@@ -14,10 +14,10 @@ const Chatbot = () => {
   return (
     <div>
         <ChatBotHero />
-        {/* <IntroVideo />
+        <IntroVideo />
         <FeatureShowcase />
         <ChatbotEngage />
-        <OmnichannelChatbot /> */}
+        <OmnichannelChatbot />
     </div>
   )
 }

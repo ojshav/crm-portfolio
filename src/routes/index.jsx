@@ -9,7 +9,11 @@ import PricingSection from "@/pages/Pricing/PricingSection";
 import Emailautomation from "@/pages/Emailautomation/Email";
 import BookAppointment from "@/pages/BookAppointment/BookAppointment";
 import Chatbot from "@/pages/Chatbot/Chatbot";
+
+import Helpdesk from "@/pages/HelpDesk/Helpdesk";
+
 import CrmSales from "@/pages/CrmSales/CrmSales";
+
 
 
 
@@ -56,8 +60,13 @@ export const router = createBrowserRouter([
 
       },
       {
+        path: "help-desk",
+        element: <Helpdesk />
+      },
+        {
         path: "crm-sales",
         element: <CrmSales />
+
 
       }
     ],

@@ -161,12 +161,7 @@ const HeroHeader = () => {
           </button>
         </div>
 
-        {/* Floating elements */}
-        <div className="absolute top-20 left-10 w-4 h-4 bg-gradient-to-r from-cyan-400 to-blue-600 rounded-full animate-bounce delay-700 hidden md:block"></div>
-        <div className="absolute top-32 right-20 w-3 h-3 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full animate-bounce delay-1000 hidden md:block"></div>
-        <div className="absolute bottom-32 left-20 w-5 h-5 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full animate-bounce delay-500 hidden md:block"></div>
-        <div className="absolute bottom-20 right-10 w-2 h-2 bg-gradient-to-r from-pink-400 to-cyan-400 rounded-full animate-bounce delay-300 hidden md:block"></div>
-
+        
         {/* Stats or features preview */}
         <div className="mt-16 grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-4xl mx-auto">
           {[

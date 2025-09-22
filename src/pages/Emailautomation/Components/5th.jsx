@@ -217,7 +217,7 @@ const Fifth = () => {
           transition={{ duration: 0.6, delay: 0.6 }}
           className="mt-10 px-9 py-3 bg-gradient-to-r from-cyan-400 via-blue-600 via-purple-600 to-pink-500 text-white rounded-full font-semibold shadow-lg hover:shadow-xl transition-all"
         >
-          Get Tool -
+          Get Tool 
         </motion.button>
       </div>
     </section>

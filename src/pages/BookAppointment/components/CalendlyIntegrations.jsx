@@ -26,85 +26,90 @@ const CalendlyIntegrations = () => {
   ]
 
   return (
-    <div className="max-w-7xl mx-auto px-6 py-16">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
       {/* Header Section */}
-      <div className="grid md:grid-cols-2 gap-8 mb-16">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 mb-12 sm:mb-16">
         {/* Left - Heading */}
-        <div>
-          <h2 className="text-4xl md:text-5xl font-bold text-slate-800 leading-tight">
-            Connect Calendly to the 
-            <br />
-            tools you already use
+        <div className="text-center md:text-left">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-800 leading-tight">
+            Connect Custria to the 
+            <span className="block sm:inline">
+              <br className="hidden sm:block" />
+              tools you already use
+            </span>
           </h2>
         </div>
         
         {/* Right - Description */}
-        <div className="flex flex-col justify-center">
-          <p className="text-gray-600 text-lg mb-4">
+        <div className="flex flex-col justify-center text-center md:text-left">
+          <p className="text-gray-600 text-base sm:text-lg mb-4">
             Boost productivity with 100+ integrations
           </p>
-          <button className="flex items-center gap-2 text-slate-800 font-bold hover:text-blue-600 transition-colors w-fit">
+          <button className="flex items-center justify-center md:justify-start gap-2 text-slate-800 font-bold hover:text-blue-600 transition-colors w-fit mx-auto md:mx-0">
             View all integrations 
             <ArrowRight className="w-4 h-4" />
           </button>
         </div>
       </div>
 
-      {/* Icons Grid */}
-      <div className="grid grid-cols-9 gap-4 mb-16">
+      {/* Icons Grid - Responsive grid columns */}
+      <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-9 gap-2 sm:gap-3 md:gap-4 mb-12 sm:mb-16">
         {companys.map((company, index) => (
           <div 
             key={index}
-            className="aspect-square bg-white border-2 border-gray-200 rounded-xl flex items-center justify-center hover:border-blue-300 hover:bg-blue-100/50 hover:shadow-sm hover:scale-105 transition-all"
+            className="aspect-square bg-white border-2 border-gray-200 rounded-lg sm:rounded-xl flex items-center justify-center hover:border-blue-300 hover:bg-blue-100/50 hover:shadow-sm hover:scale-105 transition-all duration-200 p-2 sm:p-3"
           >
             <img 
               src={company} 
-              alt="Integration logo" 
-              className="w-12 h-12 object-contain"
+              alt={`Integration logo ${index + 1}`}
+              className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 lg:w-12 lg:h-12 object-contain"
+              loading="lazy"
             />
           </div>
         ))}
       </div>
 
       {/* Cards Section */}
-      <div className="grid md:grid-cols-2 gap-8">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
         {/* Google Suite Card */}
-        <div className="bg-white border border-gray-200 rounded-2xl p-8 hover:shadow-lg transition-shadow">
-          <div className="flex justify-between items-start mb-6">
+        <div className="bg-white border border-gray-200 rounded-xl sm:rounded-2xl p-6 sm:p-8 hover:shadow-lg transition-shadow duration-300">
+          <div className="flex justify-between items-start mb-4 sm:mb-6">
             <img 
-              src={"https://calendly.com/media/googleLogo.svg"} 
+              src="https://calendly.com/media/googleLogo.svg"
               alt="Google Suite" 
-              className="w-12 h-12 object-contain"
+              className="w-10 h-10 sm:w-12 sm:h-12 object-contain flex-shrink-0"
+              loading="lazy"
             />
-            <ArrowUpRight className="w-6 h-6 text-black hover:text-blue-600 transition-colors cursor-pointer" />
+            <ArrowUpRight className="w-5 h-5 sm:w-6 sm:h-6 text-black hover:text-blue-600 transition-colors cursor-pointer flex-shrink-0" />
           </div>
           
-          <h3 className="text-2xl font-bold text-slate-800 mb-4">
+          <h3 className="text-xl sm:text-2xl font-bold text-slate-800 mb-3 sm:mb-4">
             Google suite
           </h3>
           
-          <p className="text-gray-600 leading-relaxed">
-            Get your job done faster by connecting Calendly to Google Calendar, Meet, Analytics, and more.
+          <p className="text-gray-600 leading-relaxed text-sm sm:text-base">
+            Get your job done faster by connecting Custria to Google Calendar, Meet, Analytics, and more.
           </p>
         </div>
 
         {/* Microsoft Suite Card */}
-        <div className="bg-white border border-gray-200 rounded-2xl p-8 hover:shadow-lg transition-shadow">
-          <div className="flex justify-between items-start mb-6">
+        <div className="bg-white border border-gray-200 rounded-xl sm:rounded-2xl p-6 sm:p-8 hover:shadow-lg transition-shadow duration-300">
+          <div className="flex justify-between items-start mb-4 sm:mb-6">
             <img 
-              src={"https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/2048px-Microsoft_logo.svg.png"} 
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/2048px-Microsoft_logo.svg.png"
               alt="Microsoft Suite" 
-              className="w-10 h-10 object-contain"
+              className="w-8 h-8 sm:w-10 sm:h-10 object-contain flex-shrink-0"
+              loading="lazy"
             />
-            <ArrowUpRight className="w-6 h-6 text-black hover:text-blue-600 transition-colors cursor-pointer" />
+            <ArrowUpRight className="w-5 h-5 sm:w-6 sm:h-6 text-black hover:text-blue-600 transition-colors cursor-pointer flex-shrink-0" />
           </div>
           
-          <h3 className="text-2xl font-bold text-slate-800 mb-4">
+          <h3 className="text-xl sm:text-2xl font-bold text-slate-800 mb-3 sm:mb-4">
             Microsoft suite
           </h3>
           
-          <p className="text-gray-600 leading-relaxed">
-            Make your day easier with Calendly integrations for Microsoft Teams, Outlook, Azure SSO, and more.
+          <p className="text-gray-600 leading-relaxed text-sm sm:text-base">
+            Make your day easier with Custria integrations for Microsoft Teams, Outlook, Azure SSO, and more.
           </p>
         </div>
       </div>

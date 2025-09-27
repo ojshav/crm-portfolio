@@ -75,7 +75,7 @@ const ServicesHero = () => {
                     transition={{ duration: 0.6 }}
                     className="text-center mb-8"
                 >
-                    <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
+                    <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
                         The everything CRM
                         <br />
                         for large teams

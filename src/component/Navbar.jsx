@@ -19,9 +19,12 @@ export default function BeautifulNavbar() {
         <div className="flex items-center justify-between h-16 lg:h-20">
           
           {/* Logo */}
+          <Link to={"/"} >
+          
           <div className="flex items-center space-x-3">
             <img src="/logo.png" alt="" className='h-20 w-20'/>
           </div>
+          </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-8">

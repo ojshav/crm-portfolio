@@ -13,6 +13,7 @@ import Helpdesk from "@/pages/HelpDesk/Helpdesk";
 import CrmSales from "@/pages/CrmSales/CrmSales";
 import TermsConditionsPage from "@/pages/TermsConditions/TermsConditionsPage";
 import PrivacyPolicyPage from "@/pages/PrivacyPolicy/PrivacyPolicyPage";
+import Ecommerce from "@/pages/Ecommerce/Ecommerce";
 
 export const router = createBrowserRouter([
   {
@@ -71,6 +72,10 @@ export const router = createBrowserRouter([
       {
         path: "privacy-policy",
         element: <PrivacyPolicyPage />
+      },
+      {
+        path: "ecommerce",
+        element: <Ecommerce />
       }
     ],
   },

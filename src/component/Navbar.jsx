@@ -10,7 +10,9 @@ export default function BeautifulNavbar() {
     { name: 'Services', to: '/services' },
     { name: 'Portfolio', to: '/portfolio' },
     { name: 'Pricing', to: '/pricing' },
-    { name: 'Contact', to: '/contact' }
+    { name: 'Contact', to: '/contact' },
+   { name: 'Ecommerce', to: '/ecommerce' }
+
   ];
 
   return (

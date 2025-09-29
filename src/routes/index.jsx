@@ -9,13 +9,10 @@ import PricingSection from "@/pages/Pricing/PricingSection";
 import Emailautomation from "@/pages/Emailautomation/Email";
 import BookAppointment from "@/pages/BookAppointment/BookAppointment";
 import Chatbot from "@/pages/Chatbot/Chatbot";
-
 import Helpdesk from "@/pages/HelpDesk/Helpdesk";
-
 import CrmSales from "@/pages/CrmSales/CrmSales";
-
-
-
+import TermsConditionsPage from "@/pages/TermsConditions/TermsConditionsPage";
+import PrivacyPolicyPage from "@/pages/PrivacyPolicy/PrivacyPolicyPage";
 
 export const router = createBrowserRouter([
   {
@@ -66,8 +63,14 @@ export const router = createBrowserRouter([
         {
         path: "crm-sales",
         element: <CrmSales />
-
-
+      },
+      {
+        path: "terms-conditions",
+        element: <TermsConditionsPage />
+      },
+      {
+        path: "privacy-policy",
+        element: <PrivacyPolicyPage />
       }
     ],
   },

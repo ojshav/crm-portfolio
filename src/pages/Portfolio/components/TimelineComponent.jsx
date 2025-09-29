@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { motion } from 'framer-motion';
+import { motion, useInView } from 'framer-motion';
 import heroCrm1Img from '@/assets/hero-crm1.png';
 import heroCrm2Img from '@/assets/hero-crm2.png';
 import heroCrm3Img from '@/assets/hero-crm3.png';
@@ -8,11 +8,74 @@ import heroCrm5Img from '@/assets/hero-crm5.png';
 import heroCrm6Img from '@/assets/hero-crm6.png';
 import heroCrm7Img from '@/assets/hero-crm7.png';
 
+// Section component to handle individual visibility detection
+const Section = ({ section, index, isActive, onVisibilityChange }) => {
+  const ref = useRef(null);
+  
+  // Use IntersectionObserver to get precise visibility ratios
+  useEffect(() => {
+    const element = ref.current;
+    if (!element) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          // Report visibility ratio to parent
+          onVisibilityChange(index, entry.intersectionRatio);
+        });
+      },
+      {
+        threshold: Array.from({ length: 21 }, (_, i) => i * 0.05), // 0, 0.05, 0.1, ..., 1.0
+        rootMargin: "0px"
+      }
+    );
+
+    observer.observe(element);
+
+    return () => {
+      observer.disconnect();
+    };
+  }, [index, onVisibilityChange]);
+
+  return (
+    <motion.div
+      ref={ref}
+      data-index={index}
+      className="mb-8 lg:mb-16 last:mb-4 lg:last:mb-8"
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, delay: index * 0.1 }}
+    >
+      <div className="mb-4 lg:mb-8">
+        <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-2">
+          {section.title}
+        </h1>
+        <h2 className="text-lg sm:text-xl text-gray-600 mb-3 lg:mb-4">
+          {section.subtitle}
+        </h2>
+        <p className="text-gray-700 text-base sm:text-lg leading-relaxed max-w-4xl">
+          {section.description}
+        </p>
+      </div>
+
+      {/* Timeline Interface Mock */}
+      <div className="bg-gray-50 rounded-lg p-3 sm:p-4 lg:p-6 border border-gray-200">
+        <img
+          src={section.image}
+          alt={section.title}
+          className="w-full h-48 sm:h-64 lg:h-96 object-cover rounded-lg shadow-sm"
+        />
+      </div>
+    </motion.div>
+  );
+};
+
 const TimelineComponent = () => {
   const [activeSection, setActiveSection] = useState(0);
   const containerRef = useRef(null);
   const sectionRefs = useRef([]);
   const menuScrollRef = useRef(null);
+  const visibilityRatios = useRef({}); // Track visibility ratios for all sections
 
   const menuItems = [
     { id: 'sales-crm', label: 'Sales ' },
@@ -83,61 +146,50 @@ const TimelineComponent = () => {
     },
   ];
 
-  // Use IntersectionObserver to determine which section is most visible within the scroll container.
-useEffect(() => {
-  const container = containerRef.current;
-
-  // If container is not scrollable, fall back to window
-  const observer = new IntersectionObserver(
-    (entries) => {
-      let maxEntry = null;
-      entries.forEach((entry) => {
-        if (!maxEntry || entry.intersectionRatio > maxEntry.intersectionRatio) {
-          maxEntry = entry;
-        }
-      });
-
-      if (maxEntry && maxEntry.target && maxEntry.target.dataset?.index) {
-        const idx = Number(maxEntry.target.dataset.index);
-        if (!Number.isNaN(idx)) {
-          setActiveSection(idx);
-        }
+  // Handle visibility changes from sections
+  const handleVisibilityChange = (index, ratio) => {
+    visibilityRatios.current[index] = ratio;
+    
+    // Find the section with highest visibility ratio
+    let maxRatio = 0;
+    let mostVisibleSection = 0;
+    
+    Object.entries(visibilityRatios.current).forEach(([sectionIndex, visibilityRatio]) => {
+      if (visibilityRatio > maxRatio) {
+        maxRatio = visibilityRatio;
+        mostVisibleSection = parseInt(sectionIndex);
       }
-    },
-    {
-      root: container || null, // ✅ fallback to window if container is not valid
-      rootMargin: '0px 0px -50% 0px', // ✅ activates when section is halfway in view
-      threshold: [0.25, 0.5, 0.75, 1],
+    });
+    
+    // Only update if there's a clear winner (at least 10% visible) and it's different from current
+    if (maxRatio > 0.1 && mostVisibleSection !== activeSection) {
+      setActiveSection(mostVisibleSection);
     }
-  );
-
-  sectionRefs.current.forEach((el) => {
-    if (el) observer.observe(el);
-  });
-
-  return () => {
-    observer.disconnect();
   };
-}, [sections.length]);
 
-
-  // Handle menu click to scroll to section (robust calculation using bounding rects)
+  // Handle menu click to scroll to section
   const handleMenuClick = (index) => {
     const container = containerRef.current;
     const element = sectionRefs.current[index];
     if (!container || !element) return;
 
-    // Calculate element's position relative to the container's scrollTop using getBoundingClientRect
-    const containerRect = container.getBoundingClientRect();
-    const elemRect = element.getBoundingClientRect();
-
-    // desired scroll target (current scrollTop + offset from top of container to element)
-    const targetScrollTop = container.scrollTop + (elemRect.top - containerRect.top);
-
+    // Get the element's offset position within the scrollable container
+    const elementOffsetTop = element.offsetTop;
+    
+    // Scroll to the element with some padding from the top
     container.scrollTo({
-      top: targetScrollTop - 16, // small offset so heading isn't flush to top
+      top: elementOffsetTop - 50, // 50px offset from top for better visibility
       behavior: 'smooth',
     });
+
+    // Update active section immediately for instant feedback
+    setActiveSection(index);
+    
+    // Clear visibility ratios to prevent conflicts during manual scroll
+    visibilityRatios.current = {};
+    setTimeout(() => {
+      visibilityRatios.current[index] = 1; // Set clicked section as fully visible
+    }, 100);
   };
 
   // Scroll active menu item into view on mobile
@@ -188,38 +240,17 @@ useEffect(() => {
           <div
             ref={containerRef}
             className="flex-1 px-4 sm:px-6 lg:px-8 py-4 lg:py-8 scroll-smooth scrollbar-hide overflow-y-auto"
+            style={{ height: '100vh' }} // Ensure container has a defined height
           >
             {sections.map((section, index) => (
-              <motion.div
-                key={section.id}
-                ref={(el) => (sectionRefs.current[index] = el)}
-                data-index={index}
-                className="mb-8 lg:mb-16 last:mb-4 lg:last:mb-8"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-              >
-                <div className="mb-4 lg:mb-8">
-                  <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-2">
-                    {section.title}
-                  </h1>
-                  <h2 className="text-lg sm:text-xl text-gray-600 mb-3 lg:mb-4">
-                    {section.subtitle}
-                  </h2>
-                  <p className="text-gray-700 text-base sm:text-lg leading-relaxed max-w-4xl">
-                    {section.description}
-                  </p>
-                </div>
-
-                {/* Timeline Interface Mock */}
-                <div className="bg-gray-50 rounded-lg p-3 sm:p-4 lg:p-6 border border-gray-200">
-                  <img
-                    src={section.image}
-                    alt={section.title}
-                    className="w-full h-48 sm:h-64 lg:h-96 object-cover rounded-lg shadow-sm"
-                  />
-                </div>
-              </motion.div>
+              <div key={section.id} ref={(el) => (sectionRefs.current[index] = el)}>
+                <Section
+                  section={section}
+                  index={index}
+                  isActive={activeSection === index}
+                  onVisibilityChange={handleVisibilityChange}
+                />
+              </div>
             ))}
           </div>
         </div>

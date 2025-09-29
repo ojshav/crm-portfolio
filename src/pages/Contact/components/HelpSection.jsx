@@ -5,29 +5,33 @@ const supportItems = [
     id: 1,
     title: "Help desk topics",
     subtitle: "Explore now",
-    img: "https://assets.keap.com/image/upload/c_scale,w_400,q_95,dpr_2/v1722370294/keap/keap-pages/contact/help-desk-full.webp", // replace with your image
+    img: "https://assets.keap.com/image/upload/c_scale,w_400,q_95,dpr_2/v1722370294/keap/keap-pages/contact/help-desk-full.webp",
+    target: "faq", // scroll to FAQ
   },
   {
     id: 2,
     title: "CRM integrations info",
     subtitle: "See more",
     img: "https://assets.keap.com/image/upload/c_scale,w_400,q_95,dpr_2/v1648773469/keap/keap-pages/contact/integrations_cover.webp",
+    target: "faq", // scroll to FAQ
   },
   {
     id: 3,
     title: "Training for customers",
     subtitle: "Watch now",
     img: "https://assets.keap.com/image/upload/c_scale,w_400,q_95,dpr_2/v1648851238/keap/keap-pages/contact/webinars_cover.webp",
+    target: "contact", // scroll to ContactForm
   },
   {
     id: 4,
     title: "User community",
     subtitle: "Get connected",
     img: "https://assets.keap.com/image/upload/c_scale,w_400,q_95,dpr_2/v1648851238/keap/keap-pages/contact/community_cover.webp",
+    target: "contact", // scroll to ContactForm
   },
 ];
 
-export default function HelpSection() {
+export default function HelpSection({ onScroll }) {
   return (
     <section className="w-full py-20 px-6 lg:px-20 text-center max-w-7xl mx-auto">
       {/* Subtitle */}
@@ -66,7 +70,10 @@ export default function HelpSection() {
               <h3 className="text-lg font-semibold text-gray-900">
                 {item.title}
               </h3>
-              <button className="mt-3 inline-flex items-center text-sm font-medium text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-purple-500 to-pink-500 group-hover:underline">
+              <button
+                onClick={() => onScroll(item.target)}
+                className="mt-3 inline-flex items-center text-sm font-medium text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-purple-500 to-pink-500 group-hover:underline"
+              >
                 {item.subtitle}
                 <svg
                   className="w-4 h-4 ml-2"

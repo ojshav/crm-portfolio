@@ -74,7 +74,7 @@ export default function BeautifulNavbar() {
 
         {/* Mobile Menu */}
         <div className={`lg:hidden transition-all duration-300 ease-in-out ${
-          isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+          isOpen ? 'max-h-full opacity-100' : 'max-h-0 opacity-0'
         } overflow-hidden`}>
           <div className="py-6 space-y-4 border-t border-gray-100/50 mt-4">
             {navItems.map((item) => (
@@ -90,7 +90,7 @@ export default function BeautifulNavbar() {
             
             {/* Mobile CTA Buttons */}
             <div className="pt-4 space-y-3 border-t border-gray-100/50">
-              <Link to="/contact" className="w-full text-left text-gray-700 hover:text-purple-600 font-medium py-2 transition-colors duration-300">
+              <Link to="/contact" className="w-full text-left text-gray-700 hover:text-purple-600 font-medium py-2 mr-4 transition-colors duration-300">
                 Sign In
               </Link>
               <Link to="/pricing" className="w-full bg-gradient-to-r from-purple-500 to-blue-600 text-white px-6 py-3 rounded-full font-medium hover:from-purple-600 hover:to-blue-700 transition-all duration-300 shadow-lg">

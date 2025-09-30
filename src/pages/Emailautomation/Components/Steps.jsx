@@ -1,468 +1,201 @@
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 
+const EmailAutomationSteps = () => {
+  const [currentFeature, setCurrentFeature] = useState(0);
+  const [progress, setProgress] = useState(0);
+  const autoPlayInterval = 4000;
 
-
-
-
-// import React, { useState, useEffect, useRef } from 'react';
-// import { Target, Zap, BarChart3, Settings } from 'lucide-react';
-
-// const Steps = () => {
-//   const [activeStep, setActiveStep] = useState(0);
-//   const [isVisible, setIsVisible] = useState(false);
-//   const componentRef = useRef(null);
-
-//   useEffect(() => {
-//     const observer = new IntersectionObserver(
-//       ([entry]) => {
-//         if (entry.isIntersecting) {
-//           setIsVisible(true);
-//         }
-//       },
-//       { threshold: 0.1 }
-//     );
-
-//     if (componentRef.current) {
-//       observer.observe(componentRef.current);
-//     }
-
-//     return () => observer.disconnect();
-//   }, []);
-
-//   useEffect(() => {
-//     if (isVisible) {
-//       const interval = setInterval(() => {
-//         setActiveStep(prev => (prev + 1) % 4);
-//       }, 4000);
-
-//       return () => clearInterval(interval);
-//     }
-//   }, [isVisible]);
-
-//   const steps = [
-//     {
-//       id: 1,
-//       title: "Define Clear Goals and Audience Segments",
-//       description: "Before we launch any campaign, we work with you to understand your business objectives, target audience, and customer journey. By defining clear goals and segmenting your audience, your emails reach the right people at the right time, increasing open rates and conversions.",
-//       icon: Target,
-//     },
-//     {
-//       id: 2,
-//       title: "Create and Automate High-Impact Campaigns",
-//       description: "Our CRM empowers you to design beautiful, mobile-friendly email templates, set up drip campaigns, and automate follow-ups without manual effort. Personalization, A/B testing, and trigger-based workflows ensure that each subscriber receives a message that resonates with their needs.",
-//       icon: Zap,
-//     },
-//     {
-//       id: 3,
-//       title: "Track Performance with Advanced Analytics",
-//       description: "Monitor key metrics such as open rates, click-through rates, bounce rates, and conversions from a single intuitive dashboard. Detailed reports and visual analytics help you measure ROI and understand customer behavior to refine your strategy.",
-//       icon: BarChart3,
-//     },
-//     {
-//       id: 4,
-//       title: "Optimize, Integrate, and Scale Effortlessly",
-//       description: "Using real-time data, we continuously optimize subject lines, send times, and content to maximize engagement. Our Email Automation CRM integrates seamlessly with your existing CRM, e-commerce, and marketing tools, ensuring smooth workflows as your campaigns and subscriber base grow.",
-//       icon: Settings,
-//     }
-//   ];
-
-//   return (
-//     <div 
-//       ref={componentRef}
-//       className="min-h-screen bg-gradient-to-br from-slate-50 to-gray-100 p-4 md:p-8 font-inter"
-//     >
-//       <div className="max-w-7xl mx-auto">
-//         {/* Header Section */}
-//         <div className={`text-center mb-16 transform transition-all duration-1200 ease-out ${
-//           isVisible ? 'translate-y-0 opacity-100' : 'translate-y-16 opacity-0'
-//         }`}>
-//           <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight tracking-tight">
-//             Transform Your Email Marketing with Our{' '}
-//             <span className="bg-gradient-to-r from-cyan-400 via-blue-500 via-purple-500 to-pink-500 bg-clip-text text-transparent">
-//               Email Automation CRM
-//             </span>
-//           </h1>
-//           <p className="text-lg md:text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed font-medium">
-//             Take your email marketing to the next level with our all-in-one Email Automation CRM. From planning and designing campaigns to real-time tracking and optimization, we help you build stronger relationships, increase engagement, and drive measurable results.
-//           </p>
-//         </div>
-
-//         {/* Main Content Grid */}
-//         <div className="grid lg:grid-cols-2 gap-16 items-center">
-//           {/* Left Side - Image Container */}
-//           <div className={`relative transform transition-all duration-1000 delay-200 ease-out ${
-//             isVisible ? 'translate-x-0 opacity-100' : '-translate-x-12 opacity-0'
-//           }`}>
-//             <div className="relative bg-white rounded-3xl shadow-2xl overflow-hidden">
-//               {/* Background Decoration */}
-//               <div className="absolute inset-0 bg-gradient-to-br from-purple-50 via-blue-50 to-pink-50"></div>
-              
-//               {/* Image Containers for each step */}
-//               <div className="relative z-10 p-8 min-h-[500px] flex items-center justify-center">
-//                 {/* Step 1 Image Container */}
-//                 <div className={`absolute inset-0 p-8 flex items-center justify-center transition-all duration-700 ${
-//                   activeStep === 0 ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
-//                 }`}>
-//                   <div className="w-full h-full bg-gradient-to-br from-blue-100 to-cyan-100 rounded-2xl flex items-center justify-center">
-//                     <div className="text-gray-500 font-semibold text-lg">Step 1 Image</div>
-//                   </div>
-//                 </div>
-
-//                 {/* Step 2 Image Container */}
-//                 <div className={`absolute inset-0 p-8 flex items-center justify-center transition-all duration-700 ${
-//                   activeStep === 1 ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
-//                 }`}>
-//                   <div className="w-full h-full bg-gradient-to-br from-purple-100 to-pink-100 rounded-2xl flex items-center justify-center">
-//                     <div className="text-gray-500 font-semibold text-lg">Step 2 Image</div>
-//                   </div>
-//                 </div>
-
-//                 {/* Step 3 Image Container */}
-//                 <div className={`absolute inset-0 p-8 flex items-center justify-center transition-all duration-700 ${
-//                   activeStep === 2 ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
-//                 }`}>
-//                   <div className="w-full h-full bg-gradient-to-br from-green-100 to-teal-100 rounded-2xl flex items-center justify-center">
-//                     <div className="text-gray-500 font-semibold text-lg">Step 3 Image</div>
-//                   </div>
-//                 </div>
-
-//                 {/* Step 4 Image Container */}
-//                 <div className={`absolute inset-0 p-8 flex items-center justify-center transition-all duration-700 ${
-//                   activeStep === 3 ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
-//                 }`}>
-//                   <div className="w-full h-full bg-gradient-to-br from-orange-100 to-yellow-100 rounded-2xl flex items-center justify-center">
-//                     <div className="text-gray-500 font-semibold text-lg">Step 4 Image</div>
-//                   </div>
-//                 </div>
-//               </div>
-//             </div>
-//           </div>
-
-//           {/* Right Side - Steps */}
-//           <div className={`space-y-8 transform transition-all duration-1000 delay-400 ease-out ${
-//             isVisible ? 'translate-x-0 opacity-100' : 'translate-x-12 opacity-0'
-//           }`}>
-//             {steps.map((step, index) => {
-//               const Icon = step.icon;
-//               const isActive = activeStep === index;
-              
-//               return (
-//                 <div
-//                   key={step.id}
-//                   className={`relative transition-all duration-700 transform cursor-pointer ${
-//                     isActive 
-//                       ? 'scale-105 translate-x-4' 
-//                       : 'scale-100 translate-x-0 hover:scale-102'
-//                   }`}
-//                   onClick={() => setActiveStep(index)}
-//                   style={{ 
-//                     transitionDelay: isVisible ? `${index * 100}ms` : '0ms' 
-//                   }}
-//                 >
-//                   {/* Transparent Background Box */}
-//                   <div className={`absolute inset-0 rounded-2xl transition-all duration-500 ${
-//                     isActive 
-//                       ? 'bg-white/90 backdrop-blur-sm shadow-xl border border-white/20' 
-//                       : 'bg-white/40 backdrop-blur-sm border border-white/10 hover:bg-white/60'
-//                   }`}></div>
-
-//                   {/* Step Content */}
-//                   <div className="relative z-10 flex items-start gap-6 p-6">
-//                     {/* Step Number */}
-//                     <div className={`flex-shrink-0 w-16 h-16 rounded-full flex items-center justify-center font-bold text-xl transition-all duration-500 ${
-//                       isActive 
-//                         ? 'bg-gradient-to-r from-cyan-400 via-blue-500 via-purple-500 to-pink-500 text-white shadow-lg scale-110' 
-//                         : 'bg-gray-200/80 text-gray-600 backdrop-blur-sm'
-//                     }`}>
-//                       {String(step.id).padStart(2, '0')}
-//                     </div>
-                    
-//                     {/* Content */}
-//                     <div className="flex-1">
-//                       <h3 className={`text-xl font-bold mb-3 transition-all duration-300 font-sans tracking-tight ${
-//                         isActive ? 'text-gray-900' : 'text-gray-700'
-//                       }`}>
-//                         {step.title}
-//                       </h3>
-//                       <p className={`leading-relaxed transition-all duration-300 font-medium ${
-//                         isActive ? 'text-gray-700 text-base' : 'text-gray-600 text-sm'
-//                       }`}>
-//                         {step.description}
-//                       </p>
-                      
-//                       {/* Icon */}
-//                       <div className={`mt-4 transition-all duration-300 ${
-//                         isActive ? 'opacity-100 scale-100' : 'opacity-60 scale-90'
-//                       }`}>
-//                         <Icon className={`transition-all duration-300 ${
-//                           isActive ? 'text-purple-600' : 'text-gray-400'
-//                         }`} size={24} />
-//                       </div>
-//                     </div>
-//                   </div>
-                  
-//                   {/* Active Step Highlight Line */}
-//                   {isActive && (
-//                     <div className="absolute left-8 top-20 w-0.5 h-3/4 bg-gradient-to-b from-cyan-400 via-blue-500 via-purple-500 to-pink-500 animate-pulse rounded-full"></div>
-//                   )}
-//                 </div>
-//               );
-//             })}
-//           </div>
-//         </div>
-
-//         {/* Progress Indicator */}
-//         <div className={`flex justify-center mt-16 transform transition-all duration-1000 delay-600 ease-out ${
-//           isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
-//         }`}>
-//           <div className="flex gap-3">
-//             {steps.map((_, index) => (
-//               <button
-//                 key={index}
-//                 onClick={() => setActiveStep(index)}
-//                 className={`w-3 h-3 rounded-full transition-all duration-300 ${
-//                   activeStep === index 
-//                     ? 'bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 scale-125 shadow-lg' 
-//                     : 'bg-gray-300 hover:bg-gray-400 hover:scale-110'
-//                 }`}
-//               />
-//             ))}
-//           </div>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default Steps;
-
-import img4 from "../../../assets/Emailautomation/img4.png";
-import img5 from "../../../assets/Emailautomation/img5.png";
-import img6 from "../../../assets/Emailautomation/img6.png";
-import React, { useState, useEffect, useRef } from 'react';
-import { Target, Zap, BarChart3, Settings } from 'lucide-react';
-
-const Steps = () => {
-  const [activeStep, setActiveStep] = useState(0);
-  const [isVisible, setIsVisible] = useState(false);
-  const componentRef = useRef(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
-      { threshold: 0.1 }
-    );
-
-    if (componentRef.current) {
-      observer.observe(componentRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, []);
-
-  useEffect(() => {
-    if (isVisible) {
-      const interval = setInterval(() => {
-        setActiveStep(prev => (prev + 1) % 4);
-      }, 4000);
-
-      return () => clearInterval(interval);
-    }
-  }, [isVisible]);
-
-  const steps = [
-    {
-      id: 1,
-      title: "Define Clear Goals and Audience Segments",
-      description: "Before we launch any campaign, we work with you to understand your business objectives, target audience, and customer journey. By defining clear goals and segmenting your audience, your emails reach the right people at the right time, increasing open rates and conversions.",
-      icon: Target,
+  const features = [
+    { 
+      step: 'Step 1', 
+      title: 'Connect Your Platform',
+      content: 'Seamlessly integrate your e-commerce store with our email automation system in just a few clicks.', 
+      image: 'https://res.cloudinary.com/monday-blogs/fl_lossy,f_auto,q_auto/wp-blog/2021/03/lead_score_mid_way-9-scaled.jpg' 
     },
-    {
-      id: 2,
-      title: "Create and Automate High-Impact Campaigns",
-      description: "Our CRM empowers you to design beautiful, mobile-friendly email templates, set up drip campaigns, and automate follow-ups without manual effort. Personalization, A/B testing, and trigger-based workflows ensure that each subscriber receives a message that resonates with their needs.",
-      icon: Zap,
+    { 
+      step: 'Step 2',
+      title: 'Design Your Campaign',
+      content: 'Choose from pre-built templates or create custom email campaigns with our drag-and-drop editor.',
+      image: 'https://s3-ap-south-1.amazonaws.com/ind-cdn.freshdesk.com/data/helpdesk/attachments/production/1060032351744/original/x_xIcK-q5QzAguhfI2ASKSi0fmi41r5RCg.png?1740348975'
     },
-    {
-      id: 3,
-      title: "Track Performance with Advanced Analytics",
-      description: "Monitor key metrics such as open rates, click-through rates, bounce rates, and conversions from a single intuitive dashboard. Detailed reports and visual analytics help you measure ROI and understand customer behavior to refine your strategy.",
-      icon: BarChart3,
+    { 
+      step: 'Step 3',
+      title: 'Set Up Triggers',
+      content: 'Configure behavioral triggers and conditions to send the right message at the perfect moment.',
+      image: 'https://miro.medium.com/1*g0dO1Mfr9hbc3MnI39FaKQ.png'
     },
- 
+    { 
+      step: 'Step 4',
+      title: 'Launch & Monitor',
+      content: 'Activate your campaigns and track performance in real-time with comprehensive analytics dashboard.',
+      image: 'https://media.whatagraph.com/Custom_analytics_2554b01619.png?width=2000'
+    },
   ];
 
+  useEffect(() => {
+    const timer = setInterval(() => {
+      if (progress < 100) {
+        setProgress((prev) => prev + 100 / (autoPlayInterval / 100));
+      } else {
+        setCurrentFeature((prev) => (prev + 1) % features.length);
+        setProgress(0);
+      }
+    }, 100);
+
+    return () => clearInterval(timer);
+  }, [progress, features.length]);
+
   return (
-    <div 
-      ref={componentRef}
-      className="min-h-screen bg-white px-2  lg:px md:px-   md:py-20  py-10 font-inter"
-    >
-      <div className="max-w-7xl mx-auto">
-        {/* Header Section */}
-        <div className={`text-center mb-16 transform transition-all duration-1200 ease-out ${
-          isVisible ? 'translate-y-0 opacity-100' : 'translate-y-16 opacity-0'
-        }`}>
-          <h1 className="text-3xl md:text-6xl font-bold text-gray-900 mb-10 leading-tight tracking-tight">
-            Transform Your Email Marketing with Our{' '}
-            <span className="bg-gradient-to-r mt-4 from-cyan-400 via-blue-500 via-purple-500 to-pink-500 bg-clip-text text-transparent">
-              Email Automation CRM
+    <div className="bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 py-20 px-8">
+      <div className="max-w-7xl mx-auto w-full">
+        {/* Section Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-16"
+        >
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="inline-block mb-6"
+          >
+            <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 text-white px-6 py-2 rounded-full text-sm font-semibold shadow-lg">
+              🚀 Quick Setup Process
             </span>
-          </h1>
-          <p className="text-md md:text-xl text-gray-600 max-w-5xl mx-auto leading-relaxed font-medium">
-            Take your email marketing to the next level with our all-in-one Email Automation CRM. From planning and designing campaigns to real-time tracking and optimization, we help you build stronger relationships, increase engagement, and drive measurable results.
+          </motion.div>
+
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+            Get Started in{' '}
+            <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
+              4 Simple Steps
+            </span>
+          </h2>
+
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            Launch your first automated email campaign in minutes, not hours. Our intuitive setup process makes it easy.
           </p>
-        </div>
+        </motion.div>
 
-        {/* Main Content Grid */}
-        <div className="grid lg:grid-cols-2 gap-12 items-start">
-          {/* Left Side - Image Container */}
-          <div className={`relative transform transition-all duration-1000 delay-200 ease-out ${
-            isVisible ? 'translate-x-0 opacity-100' : '-translate-x-12 opacity-0'
-          }`}>
-            <div className="relative bg-white rounded-2xl  overflow-hidden h-[500px]">
-              {/* Background Decoration */}
-              <div className="absolute inset-0 bg-gradient-to-br from-purple-50 via-blue-50 to-pink-50"></div>
-              
-              {/* Image Containers for each step */}
-              <div className="relative z-10 p-4 h-full flex items-center justify-center">
-                {/* Step 1 Image Container */}
-                <div className={`absolute inset-4 flex items-center justify-center transition-all duration-700 ${
-                  activeStep === 0 ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
-                }`}>
-                   <img
-                          src={img4}
-                          alt="Professional woman"
-                          className="w-full h-full object-contain"
-                        />
-                </div>
-
-                {/* Step 2 Image Container */}
-                <div className={`absolute inset-4 flex items-center justify-center transition-all duration-700 ${
-                  activeStep === 1 ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
-                }`}>
-                     <img
-                          src={img5}
-                          alt="Professional woman"
-                          className="w-full h-full object-contain"
-                        />
-                </div>
-
-                {/* Step 3 Image Container */}
-                <div className={`absolute inset-4 flex items-center justify-center transition-all duration-700 ${
-                  activeStep === 2 ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
-                }`}>
-                     <img
-                          src={img6}
-                          alt="Professional woman"
-                          className="w-full h-full object-contain"
-                        />
-                </div>
-
-                {/* Step 4 Image Container */}
-                <div className={`absolute inset-4 flex items-center justify-center transition-all duration-700 ${
-                  activeStep === 3 ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
-                }`}>
-                    <img
-                          src={img4}
-                          alt="Professional woman"
-                          className="w-full h-full object-contain"
-                        />
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Right Side - Steps */}
-          <div className={`space-y-4 transform transition-all duration-1000 delay-400 ease-out ${
-            isVisible ? 'translate-x-0 opacity-100' : 'translate-x-12 opacity-0'
-          }`}>
-            {steps.map((step, index) => {
-              const Icon = step.icon;
-              const isActive = activeStep === index;
-              
-              return (
-                <div
-                  key={step.id}
-                  className={`relative transition-all duration-700 transform cursor-pointer ${
-                    isActive 
-                      ? 'scale-102 translate-x-2' 
-                      : 'scale-100 translate-x-0 hover:scale-101'
+        <div className="flex flex-col md:grid md:grid-cols-2 gap-10 md:gap-16">
+          {/* Left Side - Steps */}
+          <div className="order-2 md:order-1 space-y-6">
+            {features.map((feature, index) => (
+              <motion.div
+                key={index}
+                className="flex items-start gap-6 cursor-pointer"
+                initial={{ opacity: 0.4 }}
+                animate={{ opacity: index === currentFeature ? 1 : 0.4 }}
+                transition={{ duration: 0.5 }}
+                onClick={() => {
+                  setCurrentFeature(index);
+                  setProgress(0);
+                }}
+              >
+                {/* Step Number Circle */}
+                <motion.div
+                  className={`w-14 h-14 rounded-full flex items-center justify-center border-2 flex-shrink-0 transition-all duration-300 ${
+                    index === currentFeature
+                      ? 'bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 border-purple-600 text-white scale-110 shadow-lg'
+                      : index < currentFeature
+                      ? 'bg-white border-green-500 text-green-500'
+                      : 'bg-white border-gray-300 text-gray-400'
                   }`}
-                  onClick={() => setActiveStep(index)}
-                  style={{ 
-                    transitionDelay: isVisible ? `${index * 100}ms` : '0ms' 
-                  }}
                 >
-                  {/* Transparent Background Box */}
-                  <div className={`absolute inset-0 rounded-xl transition-all duration-500 ${
-                    isActive 
-                      ? 'bg-white/90 backdrop-blur-sm shadow-lg border border-white/20' 
-                      : 'bg-white/40 backdrop-blur-sm border border-white/10 hover:bg-white/60'
-                  }`}></div>
+                  {index < currentFeature ? (
+                    <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                    </svg>
+                  ) : (
+                    <span className="text-xl font-bold">{index + 1}</span>
+                  )}
+                </motion.div>
 
-                  {/* Step Content */}
-                  <div className="relative z-10 flex items-start gap-4 p-4">
-                    {/* Step Number */}
-                    <div className={`flex-shrink-0 w-12 h-12 rounded-full flex items-center justify-center font-bold text-lg transition-all duration-500 ${
-                      isActive 
-                        ? 'bg-gradient-to-r from-cyan-400 via-blue-500 via-purple-500 to-pink-500 text-white shadow-lg scale-105' 
-                        : 'bg-gray-200/80 text-gray-600 backdrop-blur-sm'
-                    }`}>
-                      {String(step.id).padStart(2, '0')}
-                    </div>
-                    
-                    {/* Content */}
-                    <div className="flex-1 min-w-0">
-                      <h3 className={`text-lg font-bold mb-2 transition-all duration-300 font-sans tracking-tight leading-tight ${
-                        isActive ? 'text-gray-900' : 'text-gray-700'
-                      }`}>
-                        {step.title}
-                      </h3>
-                      <p className={`leading-relaxed transition-all duration-300 font-normal text-sm ${
-                        isActive ? 'text-gray-700' : 'text-gray-600'
-                      }`}>
-                        {step.description}
-                      </p>
-                      
-                      {/* Icon */}
-                   
-                    </div>
-                  </div>
+                {/* Step Content */}
+                <div className="flex-1 pt-2">
+                  <h3 className={`text-2xl font-bold mb-2 transition-colors duration-300 ${
+                    index === currentFeature 
+                      ? 'bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent' 
+                      : 'text-gray-900'
+                  }`}>
+                    {feature.title}
+                  </h3>
+                  <p className="text-base text-gray-600 leading-relaxed">
+                    {feature.content}
+                  </p>
                   
-                  {/* Active Step Highlight Line */}
-                  {isActive && (
-                    <div className="absolute left-6 top-14 w-0.5 h-16 bg-gradient-to-b from-cyan-400 via-blue-500 via-purple-500 to-pink-500 animate-pulse rounded-full"></div>
+                  {/* Progress Bar */}
+                  {index === currentFeature && (
+                    <div className="mt-4 h-1 bg-gray-200 rounded-full overflow-hidden">
+                      <motion.div
+                        className="h-full bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600"
+                        initial={{ width: 0 }}
+                        animate={{ width: `${progress}%` }}
+                        transition={{ duration: 0.1 }}
+                      />
+                    </div>
                   )}
                 </div>
-              );
-            })}
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Right Side - Image */}
+          <div className="order-1 md:order-2 relative h-[300px] md:h-[500px] overflow-hidden rounded-2xl shadow-2xl">
+            <AnimatePresence mode="wait">
+              {features.map(
+                (feature, index) =>
+                  index === currentFeature && (
+                    <motion.div
+                      key={index}
+                      className="absolute inset-0 rounded-2xl overflow-hidden"
+                      initial={{ y: 100, opacity: 0, rotateX: -20 }}
+                      animate={{ y: 0, opacity: 1, rotateX: 0 }}
+                      exit={{ y: -100, opacity: 0, rotateX: 20 }}
+                      transition={{ duration: 0.5, ease: "easeInOut" }}
+                    >
+                      <img
+                        src={feature.image}
+                        alt={feature.title}
+                        className="w-full h-full object-cover"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-blue-900/30 via-purple-900/20 to-transparent" />
+                      
+                      {/* Step indicator on image */}
+                      <div className="absolute top-6 left-6">
+                        <span className="bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full text-sm font-semibold text-gray-800 shadow-lg">
+                          {feature.step}
+                        </span>
+                      </div>
+                    </motion.div>
+                  ),
+              )}
+            </AnimatePresence>
           </div>
         </div>
 
-        {/* Progress Indicator */}
-        <div className={`flex justify-center mt-16 transform transition-all duration-1000 delay-600 ease-out ${
-          isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
-        }`}>
-          <div className="flex gap-3">
-            {steps.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => setActiveStep(index)}
-                className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                  activeStep === index 
-                    ? 'bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 scale-125 shadow-lg' 
-                    : 'bg-gray-300 hover:bg-gray-400 hover:scale-110'
-                }`}
-              />
-            ))}
-          </div>
-        </div>
+        {/* Bottom CTA */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+          className="text-center mt-16"
+        >
+          <button className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 text-white px-10 py-4 rounded-full text-lg font-semibold hover:shadow-2xl hover:scale-105 transition-all duration-300">
+            Start Your First Campaign
+          </button>
+          <p className="text-gray-500 mt-4 text-sm">
+            No credit card required • Free 14-day trial
+          </p>
+        </motion.div>
       </div>
     </div>
   );
 };
 
-export default Steps;
+export default EmailAutomationSteps;
